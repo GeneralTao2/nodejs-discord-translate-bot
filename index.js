@@ -8,15 +8,11 @@ const { Client, MessageEmbed, MessageAttachment, Util, Intents } = require('disc
 const client = new Client({ intents: Intents.ALL });
 
 const guildInfo = {
-    guildId: '448934652992946176', 
+    guildId: '534385182665474059', 
     channelIdPairs: [
        {
-        en: '808427868106784788',
-        ru: '808427934284644382'
-       },
-       {
-        en: '812331010213150724',
-        ru: '726026506869932043'
+        en: '838770358798123094',
+        ru: '809034416759636019'
        }
     ]
 }

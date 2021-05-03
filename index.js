@@ -16,6 +16,29 @@ const guildInfo = {
        }
     ]
 }
+/*const guildInfo = {
+    guildId: '448934652992946176', 
+    channelIdPairs: [
+       {
+        en: '808427868106784788',
+        ru: '808427934284644382'
+       },
+       {
+        en: '812331010213150724',
+        ru: '726026506869932043'
+       }
+    ]
+}*/
+/*
+const guildInfo = {
+    guildId: '837611904267583539', 
+    channelIdPairs: [
+       {
+        en: '837611904267583541',
+        ru: '837611904267583542'
+       }
+    ]
+}*/
 
 let target;
 client.on('ready', async () => {
@@ -144,7 +167,12 @@ class TranslateGuildTarget {
     async getEmbed(target, message) {
         const [translation] = await translate.translate(message.content, target);
         let fix = translation.replace(/<@! /g, "<@!")
-        fix = translation.replace(/``/g, "```")
+        fix = fix.replace(/<@ & /g, "<@&")
+        fix = fix.replace(/``/g, "```")
+        if(target === 'ru') {
+            fix = fix.replace(/@все/g, "@everyone")
+            fix = fix.replace(/@здесь/g, "@here")
+        }
         return {
             color: 0x265400,
             author: {
